@@ -20,7 +20,6 @@ public class CheckOutProduct extends BaseTest{
         home.clickHairCareMenu();
 
         hair.clickStraighteners();
-        //hair.closePopupIFPresent();
         hair.productAddToCart();
         hair.cartItem();
 
