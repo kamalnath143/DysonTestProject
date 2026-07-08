@@ -25,7 +25,6 @@ public class CheckOutProduct extends BaseTest{
 
         cart.ProceedToCheckOutPage();
 
-        Thread.sleep(3000);
 
         checkout.enterEmail("kamalnath0240@gmail.com");
         checkout.enterPhone("6300204482");
