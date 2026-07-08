@@ -12,12 +12,11 @@ public class HairCarePage {
     protected WebDriver driver;
 
     By Straighteners = By.xpath("//div[text()='Straighteners']");
-    //By PopupClose = By.xpath("//aside[@class='modal-popup custom_data_prospect modal-slide _show'] //button[@class='action-close']");
     By ProductName = By.cssSelector("h3.card_product_name");
     By addToCartButtons = By.xpath("//a[text()='Add to cart']");
     By cartItem = By.cssSelector("svg[class='icon icon--basket']");
 
-    // using constructor
+    //Constructor
     public HairCarePage(WebDriver driver) {
         this.driver = driver;
     }
