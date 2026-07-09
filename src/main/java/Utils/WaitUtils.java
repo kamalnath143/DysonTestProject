@@ -7,15 +7,16 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class WaitUtils
-{
+public class WaitUtils {
     WebDriver driver;
     WebDriverWait wait;
 
+    //Constructor to initialize the WebDriver and WebDriverWait
     public WaitUtils(WebDriver driver) {
         this.driver = driver;
-        wait =new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
+
     public boolean waitForClickable(By closeBanner) {
         try {
             wait.until(ExpectedConditions.elementToBeClickable(closeBanner)).click();
@@ -24,5 +25,4 @@ public class WaitUtils
             return false;
         }
     }
-
 }
