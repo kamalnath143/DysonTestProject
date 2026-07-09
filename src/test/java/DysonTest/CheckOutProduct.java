@@ -14,7 +14,6 @@ public class CheckOutProduct extends BaseTest{
         HomePage home = new HomePage(driver);
         HairCarePage hair = new HairCarePage(driver);
         CartPage cart = new CartPage(driver);
-        CheckOutPage checkout = new CheckOutPage(driver);
 
         home.closeStickyBanner();
         home.clickHairCareMenu();
@@ -25,15 +24,8 @@ public class CheckOutProduct extends BaseTest{
 
         cart.ProceedToCheckOutPage();
 
-
-        checkout.enterEmail("kamalnath0240@gmail.com");
-        checkout.enterPhone("6300204482");
-        checkout.enterName("kamal", "nath");
-        checkout.GSTNumber("843638");
-        checkout.CheckBox();
-        checkout.enterPincode("516360");
-        checkout.enterAddress("4/1277-burrasadu mattam", "4/1244, burrasadhu");
-        checkout.continueToPayment();
+        CheckOutPage checkout = new CheckOutPage(driver);
+        checkout.CheckOutPage("kamalnath0240@gmail.com", "6300204482", "kamal", "nath", "843638", "516360", "4/1277-burrasadu mattam", "4/1244, burrasadhu");
 
         System.out.println("Test completed successfully");
 
