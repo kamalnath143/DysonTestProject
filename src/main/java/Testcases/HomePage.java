@@ -1,31 +1,32 @@
 package Testcases;
 
 import Utils.WaitUtils;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
-import java.time.Duration;
-
-public class HomePage {
+public class HomePage extends WaitUtils {
 
     protected WebDriver driver;
-    WebDriverWait wait;
-
-    // Locators
-    By closeBanner = By.id("btn-close-sticky-promo");
-    By hairCareMenu = By.xpath("//li[@class='header__nav-item'][3]");
 
     public HomePage(WebDriver driver) {
+        super(driver);
         this.driver = driver;
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        PageFactory.initElements(driver, this);
     }
-    //wait mechanism to wait for the close banner to be clickable and then click on it
-    public void closeStickyBanner() {
-        WaitUtils wait = new WaitUtils(driver);
-        wait.waitForClickable(closeBanner);
-    }
-    public void clickHairCareMenu() {
-        driver.findElement(hairCareMenu).click();
+
+   @FindBy(id ="btn-close-sticky-promo")
+    WebElement closeBannerElement;
+
+    @FindBy(xpath ="//li[@class='header__nav-item'][3]")
+    WebElement hairCareMenu;
+
+    //Action method
+    public void HomePageMenuBar()
+    {
+        this.closeBannerElement.click();
+        hairCareMenu.click();
+
     }
 }

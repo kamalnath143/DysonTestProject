@@ -1,22 +1,25 @@
 package Testcases;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class CartPage {
 
     protected WebDriver driver;
 
-    By CheckOut = By.cssSelector("button[title='Continue to checkout']");
-
     //Using Constructor
     public CartPage(WebDriver driver)
     {
         this.driver =driver;
+        PageFactory.initElements(driver, this);
     }
 
+    @FindBy(css="button[title='Continue to checkout']")
+    WebElement CheckOut;
     public void ProceedToCheckOutPage()
     {
-        driver.findElement(CheckOut).click();
+        CheckOut.click();
     }
 }

@@ -2,26 +2,27 @@ package DysonTest;
 
 import Base.BaseTest;
 import Testcases.*;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.util.List;
 
-public class CheckOutProduct extends BaseTest{
+public class CheckOutProduct extends BaseTest {
 
     @Test
     public void CheckOutProduct() throws IOException, InterruptedException {
 
+        String ProductName = "Dyson Airstrait™ straightener (Ceramic pink/Rose gold)";
         HomePage home = new HomePage(driver);
+        home.HomePageMenuBar();
+
         HairCarePage hair = new HairCarePage(driver);
-        CartPage cart = new CartPage(driver);
-
-        home.closeStickyBanner();
-        home.clickHairCareMenu();
-
         hair.clickStraighteners();
-        hair.productAddToCart();
-        hair.cartItem();
-
+        List<WebElement> products = hair.ProductList();
+        hair.addProductToCart(ProductName);
+        hair.CartItem();
+        CartPage cart = new CartPage(driver);
         cart.ProceedToCheckOutPage();
 
         CheckOutPage checkout = new CheckOutPage(driver);

@@ -1,46 +1,63 @@
 package Testcases;
 
+import Utils.WaitUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class HairCarePage {
-
+public class HairCarePage extends WaitUtils {
 
     protected WebDriver driver;
 
-    By Straighteners = By.xpath("//div[text()='Straighteners']");
-    By ProductName = By.cssSelector("h3.card_product_name");
-    By addToCartButtons = By.xpath("//a[text()='Add to cart']");
-    By cartItem = By.cssSelector("svg[class='icon icon--basket']");
-
     //Constructor
     public HairCarePage(WebDriver driver) {
+        super(driver);
         this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
-    public void clickStraighteners() {
-        driver.findElement(Straighteners).click();
-    }
+    @FindBy(xpath="//div[text()='Straighteners']")
+    WebElement straighteners;
 
-    public void productAddToCart() {
-        List<WebElement> Products = driver.findElements(ProductName);
-        List<WebElement> addToCart = driver.findElements(addToCartButtons);
-        for (int i = 0; i < Products.size(); i++) {
-            String product = Products.get(i).getText();
-            if (product.contains("Dyson Airstrait")) {
-                //Clicking on add to cart
-                addToCart.get(i).click();
-                break;
-            }
-        }
-    }
-
-    public void cartItem ()
+    public void clickStraighteners()
     {
-        driver.findElement(cartItem).click();
+        straighteners.click();
+    }
+    @FindBy(css=".product-item")
+    List<WebElement> productNames;
+
+    By Product = By.cssSelector(".product-item");
+    By addToCart = By.cssSelector(".actions-primary form");
+
+    //Action methods
+    public List<WebElement>ProductList()
+    {
+        waitForElementToAppear(Product);
+        return productNames;
+    }
+
+    public WebElement getProductName(String ProductName)
+    {
+        WebElement prod = ProductList().stream().filter(product->
+                product.findElement(By.cssSelector("a")).getText().equals(ProductName)).findFirst().orElse(null);
+        return prod;
+    }
+
+    public void addProductToCart(String ProductName)
+    {
+        WebElement prod = getProductName(ProductName);
+        prod.findElement(addToCart).click();
+    }
+
+    @FindBy(css="svg[class='icon icon--basket']")
+    WebElement cartItem;
+    public void CartItem()
+    {
+        cartItem.click();
     }
 }
 

@@ -9,20 +9,14 @@ import java.time.Duration;
 
 public class WaitUtils {
     WebDriver driver;
-    WebDriverWait wait;
 
-    //Constructor to initialize the WebDriver and WebDriverWait
-    public WaitUtils(WebDriver driver) {
-        this.driver = driver;
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    public WaitUtils(WebDriver driver)
+    {
+        this.driver =driver;
     }
 
-    public boolean waitForClickable(By closeBanner) {
-        try {
-            wait.until(ExpectedConditions.elementToBeClickable(closeBanner)).click();
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
+    public void waitForElementToAppear(By findBy) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(findBy));
     }
 }
