@@ -18,6 +18,9 @@ public class CheckOutPage {
     @FindBy(id="customer-email")
     WebElement emailAddress;
 
+    @FindBy(id="div[id='customer-email-error']")
+    WebElement Errormessage;
+
     @FindBy(css="input[data-di-field-id='shipping-phone-number")
     WebElement phoneNumber;
 
@@ -48,7 +51,8 @@ public class CheckOutPage {
     @FindBy(css="button[name='continue_to_payment']")
     WebElement continueToPaymentButton;
 
-    public void CheckOutPage(String email,String phone,String firstName,String lastName,String gstNumber,String pincode,String addressLine1,String addressLine2) {
+    public void CheckOutPage(String email, String phone, String firstName, String lastName, String gstNumber, String pincode, String addressLine1, String addressLine2)
+    {
         emailAddress.sendKeys(email);
         phoneNumber.sendKeys(phone);
         this.firstName.sendKeys(firstName);
@@ -61,5 +65,9 @@ public class CheckOutPage {
         this.addressLine2.sendKeys(addressLine2);
         continueToPaymentButton.click();
 
+    }
+    public String Errorvalidation()
+    {
+        return Errormessage.getText();
     }
 }

@@ -23,10 +23,12 @@ public class HomePage extends WaitUtils {
     WebElement hairCareMenu;
 
     //Action method
-    public void HomePageMenuBar()
+    public HairCarePage HomePageMenuBar()
     {
         this.closeBannerElement.click();
         hairCareMenu.click();
+        HairCarePage hair = new HairCarePage(driver);
+        return hair;
 
     }
 }

@@ -55,9 +55,12 @@ public class HairCarePage extends WaitUtils {
 
     @FindBy(css="svg[class='icon icon--basket']")
     WebElement cartItem;
-    public void CartItem()
+    public CartPage CartItem()
     {
+        waitForWebElementToAppear(cartItem);
         cartItem.click();
+        CartPage cart = new CartPage(driver);
+        return cart;
     }
 }
 
