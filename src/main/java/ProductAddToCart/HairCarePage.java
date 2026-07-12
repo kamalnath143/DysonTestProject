@@ -1,4 +1,4 @@
-package Testcases;
+package ProductAddToCart;
 
 import Utils.WaitUtils;
 import org.openqa.selenium.By;
@@ -55,6 +55,7 @@ public class HairCarePage extends WaitUtils {
 
     @FindBy(css="svg[class='icon icon--basket']")
     WebElement cartItem;
+
     public CartPage CartItem()
     {
         waitForWebElementToAppear(cartItem);

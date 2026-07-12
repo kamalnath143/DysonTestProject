@@ -1,4 +1,4 @@
-package Testcases;
+package ProductAddToCart;
 
 import Utils.WaitUtils;
 import org.openqa.selenium.WebDriver;

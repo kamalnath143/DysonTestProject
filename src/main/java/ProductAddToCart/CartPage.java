@@ -1,6 +1,6 @@
-package Testcases;
+package ProductAddToCart;
 
-import org.openqa.selenium.By;
+import Utils.WaitUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class CartPage extends HairCarePage{
+public class CartPage extends WaitUtils {
 
     protected WebDriver driver;
 
@@ -25,12 +25,6 @@ public class CartPage extends HairCarePage{
 
     @FindBy(css="button[title='Continue to checkout']")
     WebElement CheckOut;
-
-//    List<WebElement> CartProducts =driver.findElements(By.cssSelector(".product-info a"));
-//    boolean match = CartProducts.stream().anyMatch(product->
-//            product.findElement(By.cssSelector("a")).getText().equalsIgnoreCase(ProductName));
-//    Assert.assertTrue(match);
-
 
     public Boolean VerfyProductDisplay(String ProductName) {
         Boolean match = CartProducts.stream().anyMatch(product ->
