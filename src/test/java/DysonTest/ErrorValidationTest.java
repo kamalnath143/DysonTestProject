@@ -1,7 +1,9 @@
 package DysonTest;
 
 import Base.BaseTest;
-import Testcases.*;
+import ProductAddToCart.CartPage;
+import ProductAddToCart.HairCarePage;
+import ProductAddToCart.HomePage;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -9,27 +11,22 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 import java.util.List;
 
-public class CheckOutProduct extends BaseTest {
+public class ErrorValidationTest extends BaseTest {
 
     @Test
-    public void CheckOutProduct() throws IOException, InterruptedException {
+    public void Errorvalidation() throws IOException, InterruptedException {
 
         String ProductName = "Dyson Airstrait™ straightener (Ceramic pink/Rose gold)";
         HomePage home = new HomePage(driver);
         HairCarePage hair =home.HomePageMenuBar();
 
-//        HairCarePage hair = new HairCarePage(driver);
         hair.clickStraighteners();
         List<WebElement> products = hair.ProductList();
         hair.addProductToCart(ProductName);
         CartPage cart = hair.CartItem();
-//      CartPage cart = new CartPage(driver);
-        boolean match =cart.VerfyProductDisplay(ProductName);
+        boolean match =cart.VerfyProductDisplay("Dyson Airstrait™ straightener (Ceramic pink/Rose gold");
         Assert.assertTrue(match);
-        CheckOutPage checkout = cart.ProceedToCheckOutPage();
 
-//        CheckOutPage checkout = new CheckOutPage(driver);
-        checkout.CheckOutPage("kamalnath0240@gmail.com", "6300204482", "kamal", "nath", "843638", "516360", "4/1277-burrasadu mattam", "4/1244, burrasadhu");
 
         System.out.println("Test completed successfully");
 
