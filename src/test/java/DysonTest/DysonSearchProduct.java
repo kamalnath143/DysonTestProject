@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 public class DysonSearchProduct extends BaseTest {
 
-    @Test
+    @Test(groups = "SearchPage")
     public void LocationFinder()
     {
 //        StoreLocation store = new StoreLocation(driver);
@@ -19,10 +19,6 @@ public class DysonSearchProduct extends BaseTest {
         product.addToCartTOProduct();
         StoreLocation store = new StoreLocation(driver);
         store.StoreLocation();
-
-
-
-
 
     }
 }

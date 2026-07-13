@@ -17,7 +17,7 @@ public class BaseTest {
 
    protected WebDriver driver;
 
-   @BeforeMethod
+   @BeforeMethod(alwaysRun = true)
     public void setup() throws IOException {
        // Properties class
        Properties prop = new Properties();
@@ -42,7 +42,7 @@ public class BaseTest {
        driver.manage().window().maximize();
        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
    }
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void windowclose()
     {
         driver.quit();

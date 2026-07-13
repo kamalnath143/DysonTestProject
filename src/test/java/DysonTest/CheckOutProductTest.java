@@ -16,6 +16,7 @@ public class CheckOutProductTest extends BaseTest {
     public void CheckOutProduct() throws IOException, InterruptedException {
 
         HomePage home = new HomePage(driver);
+        home.HomePageMenuBar();
         HairCarePage hair =home.HomePageMenuBar();
 
         hair.clickStraighteners();
