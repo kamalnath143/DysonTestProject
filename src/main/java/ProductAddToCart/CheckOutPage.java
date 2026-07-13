@@ -1,16 +1,18 @@
 package ProductAddToCart;
 
+import Utils.WaitUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 
-public class CheckOutPage {
+public class CheckOutPage extends WaitUtils {
 
     protected WebDriver driver;
 
     public CheckOutPage(WebDriver driver)  {
+        super(driver);
         this.driver =driver;
         PageFactory.initElements(driver,this);
     }
@@ -63,6 +65,7 @@ public class CheckOutPage {
         confirmPincode.click();
         this.addressLine1.sendKeys(addressLine1);
         this.addressLine2.sendKeys(addressLine2);
+        waitForWebElementToAppear(continueToPaymentButton);
         continueToPaymentButton.click();
 
     }
