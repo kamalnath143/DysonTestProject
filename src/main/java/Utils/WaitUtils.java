@@ -20,6 +20,12 @@ public class WaitUtils {
         PageFactory.initElements(driver, this);
     }
 
+    @FindBy(id ="btn-close-sticky-promo")
+    WebElement closeBannerElement;
+    public HairCarePage HomePageMenuBar() {
+        this.closeBannerElement.click();
+        return HomePageMenuBar();
+    }
     public void waitForElementToAppear(By findBy) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(findBy));

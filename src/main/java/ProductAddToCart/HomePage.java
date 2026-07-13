@@ -16,8 +16,8 @@ public class HomePage extends WaitUtils {
         PageFactory.initElements(driver, this);
     }
 
-   @FindBy(id ="btn-close-sticky-promo")
-    WebElement closeBannerElement;
+//   @FindBy(id ="btn-close-sticky-promo")
+//    WebElement closeBannerElement;
 
     @FindBy(xpath ="//li[@class='header__nav-item'][3]")
     WebElement hairCareMenu;
@@ -25,7 +25,7 @@ public class HomePage extends WaitUtils {
     //Action method
     public HairCarePage HomePageMenuBar()
     {
-        this.closeBannerElement.click();
+        //this.closeBannerElement.click();
         hairCareMenu.click();
         HairCarePage hair = new HairCarePage(driver);
         return hair;
