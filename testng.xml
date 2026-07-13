@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite parallel="tests" name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="Check Out Product Test">
+    <test verbose="2" preserve-order="true" name="Check Out Product Test 1">
         <classes>
-            <class name="DysonTest.CheckOutProductTest"/>
+            <class name="DysonTest.CheckOutProductTest1"/>
         </classes>
     </test>
     <test verbose="2" preserve-order="true" name="Search Product">
