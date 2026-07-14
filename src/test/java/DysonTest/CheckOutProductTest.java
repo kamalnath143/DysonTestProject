@@ -1,6 +1,7 @@
 package DysonTest;
 
 import Base.BaseTest;
+import Base.RetryTest;
 import ProductAddToCart.CartPage;
 import ProductAddToCart.CheckOutPage;
 import ProductAddToCart.HairCarePage;
@@ -20,7 +21,7 @@ public class CheckOutProductTest extends BaseTest {
 
     String ProductName = "Dyson Airstrait™ straightener (Ceramic pink/Rose gold)";
 
-    @Test()
+    @Test(retryAnalyzer = RetryTest.class)
     public void CheckOutProduct() throws IOException, InterruptedException {
 
 

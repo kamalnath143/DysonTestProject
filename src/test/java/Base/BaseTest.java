@@ -45,8 +45,12 @@ public abstract class BaseTest {
         Properties prop = new Properties();
         FileInputStream fil = new FileInputStream(System.getProperty("user.dir") + "//src//main//Resources//Config.properties");
         prop.load(fil);
-        String browser = prop.getProperty("browser");
-        String url = prop.getProperty("url");
+
+        //using java ternary operator
+        String browser =  System.getProperty("browser")!=null ? System.getProperty("browser") : prop.getProperty("browser");
+
+//        String browser = prop.getProperty("browser");
+       String url = prop.getProperty("url");
 
         if (browser.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();
