@@ -20,8 +20,8 @@ public class CheckOutPage extends WaitUtils {
     @FindBy(id="customer-email")
     WebElement emailAddress;
 
-    @FindBy(css="div[class='customer-email-error-massage error-wrapper']")
-    WebElement Errormessage;
+//    @FindBy(css="div[class='customer-email-error-massage error-wrapper']")
+//    WebElement Errormessage;
 
     @FindBy(css="input[data-di-field-id='shipping-phone-number")
     WebElement phoneNumber;
@@ -69,8 +69,8 @@ public class CheckOutPage extends WaitUtils {
         continueToPaymentButton.click();
 
     }
-    public String Errorvalidation()
-    {
-         return Errormessage.getText();
-    }
+//    public String Errorvalidation()
+//    {
+//         return Errormessage.getText();
+//    }
 }

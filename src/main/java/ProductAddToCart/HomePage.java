@@ -25,6 +25,7 @@ public class HomePage extends WaitUtils {
     //Action method
     public HairCarePage HomePageMenuBar()
     {
+        waitForVisibility(closeBannerElement);
         this.closeBannerElement.click();
         hairCareMenu.click();
         HairCarePage hair = new HairCarePage(driver);

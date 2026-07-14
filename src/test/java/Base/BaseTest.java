@@ -55,6 +55,7 @@ public abstract class BaseTest {
         if (browser.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
+            driver.manage().window().maximize();
             driver.get(url);
         } else if (browser.equalsIgnoreCase("firefox")) {
             WebDriverManager.firefoxdriver().setup();
@@ -65,7 +66,7 @@ public abstract class BaseTest {
             driver = new EdgeDriver();
             driver.get(url);
         }
-        driver.manage().window().maximize();
+        //driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
@@ -77,7 +78,6 @@ public abstract class BaseTest {
         return System.getProperty("user.dir")+"//reports//" + testCaseName + ".png";
 
     }
-
     @AfterMethod(alwaysRun = true)
     public void windowclose() {
         driver.quit();

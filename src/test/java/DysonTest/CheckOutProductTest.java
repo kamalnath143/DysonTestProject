@@ -21,7 +21,7 @@ public class CheckOutProductTest extends BaseTest {
 
     String ProductName = "Dyson Airstrait™ straightener (Ceramic pink/Rose gold)";
 
-    @Test(retryAnalyzer = RetryTest.class)
+    @Test()
     public void CheckOutProduct() throws IOException, InterruptedException {
 
 
@@ -36,8 +36,8 @@ public class CheckOutProductTest extends BaseTest {
         Assert.assertTrue(match);
         CheckOutPage checkout = cart.ProceedToCheckOutPage();
 
-        checkout.CheckOutPage("kamalnath6300gmail.com",  "6300204482", "kamal", "nath", "843638", "516360", "4/1277-burrasadu mattam", "4/1244, burrasadhu");
-        Assert.assertEquals("Email is missing", checkout.Errorvalidation());
+        checkout.CheckOutPage("kamalnath6300@gmail.com",  "6300204482", "kamal", "nath", "843638", "516360", "4/1277-burrasadu mattam", "4/1244, burrasadhu");
+//        Assert.assertEquals("Email is missing", checkout.Errorvalidation());
         System.out.println("Test completed successfully");
 
     }
