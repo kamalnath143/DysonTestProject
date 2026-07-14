@@ -21,6 +21,10 @@ import java.util.List;
 public class CheckOutProductTestHashMap extends BaseTest {
 
     String ProductName = "Dyson Airstrait™ straightener (Ceramic pink/Rose gold)";
+
+//    ExtentReport Data
+
+
     @Test(dataProvider ="getData", groups = {"DataProvider"})
     public void CheckOutProduct(HashMap<String,String> input) throws IOException, InterruptedException {
 
@@ -38,15 +42,6 @@ public class CheckOutProductTestHashMap extends BaseTest {
         checkout.CheckOutPage(input.get("email"), "6300204482", "kamal", "nath", "843638", "516360", "4/1277-burrasadu mattam", "4/1244, burrasadhu");
 
         System.out.println("Test completed successfully");
-
-    }
-
-    public String getScreenshot() throws IOException {
-        TakesScreenshot ts = (TakesScreenshot)driver;
-        File source = ts.getScreenshotAs(OutputType.FILE);
-        File file = new File("C://Users//pkama//OneDrive//Desktop//FrameworkTS");
-        FileUtils.copyFile(source, file);
-        return ("C://Users//pkama//OneDrive//Desktop//FrameworkTS");
 
     }
 
