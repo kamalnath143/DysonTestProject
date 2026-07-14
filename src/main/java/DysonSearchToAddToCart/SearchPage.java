@@ -27,7 +27,7 @@ public class SearchPage extends WaitUtils {
 
     public void SearchProduct(String item)
     {
-//        waitForVisibility(closeBannerElement);
+        waitForVisibility(closeBannerElement);
         this.closeBannerElement.click();
         searchIcon.click();
         SearchItem.click();

@@ -54,6 +54,7 @@ public abstract class BaseTest {
 
         if (browser.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();
+
             driver = new ChromeDriver();
             driver.manage().window().maximize();
             driver.get(url);
