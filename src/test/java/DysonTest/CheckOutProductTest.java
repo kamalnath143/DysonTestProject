@@ -21,7 +21,7 @@ public class CheckOutProductTest extends BaseTest {
 
     String ProductName = "Dyson Airstrait™ straightener (Ceramic pink/Rose gold)";
 
-    @Test(retryAnalyzer = RetryTest.class)
+    @Test()
     public void CheckOutProduct() throws IOException, InterruptedException {
 
 
